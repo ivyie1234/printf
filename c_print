@@ -1,3 +1,4 @@
+
 #include "main.h"
 #include "stdarg.h"
 #include "unistd.h"  // Make sure to include the necessary header for the write function
@@ -47,4 +48,5 @@ int _printf(const char *format, ...)
     va_end(args);
     return chara;
 }
+
 
