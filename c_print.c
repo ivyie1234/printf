@@ -62,6 +62,22 @@ int _printf(const char *format, ...)
             {
                 chara += _printf_bin(args);
             }
+				                else if (*format == 'u')
+            {
+                chara += _printf_u(args);
+            }
+            else if (*format == 'o')
+            {
+                chara += _printf_o(args);
+            }
+            else if (*format == 'x')
+            {
+                chara += _printf_x(args);
+            }
+            else if (*format == 'X')
+            {
+                chara += _printf_X(args);
+            }
 		}
 		format++;
 	}
