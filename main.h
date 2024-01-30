@@ -6,6 +6,8 @@
 #include <string.h>
 #include <unistd.h>
 
+int _printf_bin_recursive(unsigned int n, int chara);
+int _printf_bin(va_list args);
 int _printf(const char *format, ...);
 int _print_char(int c, int w, int z_d, int l_a);
 int _print_str(char *s, int w, int p, int z_d, int l_a);

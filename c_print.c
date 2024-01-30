@@ -58,6 +58,10 @@ int _printf(const char *format, ...)
 				write(1, num_str, num_len);
 				chara += num_len;
 			}
+			            else if (*format == 'b')
+            {
+                chara += _printf_bin(args);
+            }
 		}
 		format++;
 	}
