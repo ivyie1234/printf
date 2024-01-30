@@ -12,6 +12,12 @@ int _printf_X(va_list args);
 int _printf_x(va_list args);
 int _printf_u(va_list args);
 int _printf_o(va_list args);
+int _printf_str(char *str);
+int _printf_int(int n);
+int _printf_char(int c);
+int _printf_unsigned_recursive(unsigned int n);
+int _printf_unsigned(unsigned int n);
+
 
 int _printf(const char *format, ...);
 int _print_char(int c, int w, int z_d, int l_a);
