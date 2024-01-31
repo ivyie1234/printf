@@ -24,7 +24,8 @@ int _printf(const char *format, ...)
 	{
 		if (*format != '%')
 		{
-			 buffer[index++] = *format;
+			putchar(*format);
+			buffer[index++] = *format;
 			chara++;
 
 			if (index == BUFFER_SIZE - 1)
@@ -37,8 +38,6 @@ int _printf(const char *format, ...)
 				}
 				index = 0;
 			}
-			put_char(*format);
-			chara++;
 		}
 		else
 		{
