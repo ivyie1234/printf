@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * _printf_char - Prints a character to a buffer and updates index and char_count
+ * _printf_chars - Prints a character to a buffer and updates index and char_count
  * @c: The character to be printed
  * @buffer: The buffer to store the characters
  * @index: Pointer to the index in the buffer
  * @char_count: Pointer to the character count
  * Return: Number of characters printed (always 1)
  */
-int _printf_char(char c, char *buffer, int *index, int *char_count)
+int _printf_chars(char c, char *buffer, int *index, int *char_count)
 {
     buffer[(*index)++] = c;
     (*char_count)++;
@@ -16,14 +16,14 @@ int _printf_char(char c, char *buffer, int *index, int *char_count)
 }
 
 /**
- * _printf_str - Prints a string to a buffer and updates index and char_count
+ * _printf_strs - Prints a string to a buffer and updates index and char_count
  * @str: The string to be printed
  * @buffer: The buffer to store the characters
  * @index: Pointer to the index in the buffer
  * @char_count: Pointer to the character count
  * Return: Number of characters printed
  */
-int _printf_str(char *str, char *buffer, int *index, int *char_count)
+int _printf_strs(char *str, char *buffer, int *index, int *char_count)
 {
     int count = 0;
     while (*str)
@@ -36,14 +36,14 @@ int _printf_str(char *str, char *buffer, int *index, int *char_count)
 }
 
 /**
- * _printf_int - Prints an integer to a buffer and updates index and char_count
+ * _printf_ints - Prints an integer to a buffer and updates index and char_count
  * @n: The integer to be printed
  * @buffer: The buffer to store the characters
  * @index: Pointer to the index in the buffer
  * @char_count: Pointer to the character count
  * Return: Number of characters printed
  */
-int _printf_int(int n, char *buffer, int *index, int *char_count)
+int _printf_ints(int n, char *buffer, int *index, int *char_count)
 {
     int count = 0;
 
@@ -54,20 +54,20 @@ int _printf_int(int n, char *buffer, int *index, int *char_count)
         n = -n;
     }
 
-    count += _printf_unsigned((unsigned int)n, buffer, index, char_count);
+    count += _printf_unsigneds((unsigned int)n, buffer, index, char_count);
 
     return count;
 }
 
 /**
- * _printf_unsigned - Prints an unsigned integer to a buffer and updates index and char_count
+ * _printf_unsigneds - Prints an unsigned integer to a buffer and updates index and char_count
  * @n: The unsigned integer to be printed
  * @buffer: The buffer to store the characters
  * @index: Pointer to the index in the buffer
  * @char_count: Pointer to the character count
  * Return: Number of characters printed
  */
-int _printf_unsigned(unsigned int n, char *buffer, int *index, int *char_count)
+int _printf_unsigneds(unsigned int n, char *buffer, int *index, int *char_count)
 {
     int count = 0;
 
@@ -79,14 +79,14 @@ int _printf_unsigned(unsigned int n, char *buffer, int *index, int *char_count)
     }
     else
     {
-        count += _printf_unsigned_recursive(n, buffer, index, char_count);
+        count += _printf_unsigned_recursives(n, buffer, index, char_count);
     }
 
     return count;
 }
 
 /**
- * _printf_unsigned_recursive - Recursively prints the unsigned integer to a buffer
+ * _printf_unsigned_recursives - Recursively prints the unsigned integer to a buffer
  * and updates index and char_count
  * @n: The unsigned integer to be printed
  * @buffer: The buffer to store the characters
@@ -94,12 +94,12 @@ int _printf_unsigned(unsigned int n, char *buffer, int *index, int *char_count)
  * @char_count: Pointer to the character count
  * Return: Number of characters printed
  */
-int _printf_unsigned_recursive(unsigned int n, char *buffer, int *index, int *char_count)
+int _printf_unsigned_recursives(unsigned int n, char *buffer, int *index, int *char_count)
 {
     int count = 0;
 
     if (n > 0)
-        count += _printf_unsigned_recursive(n / 10, buffer, index, char_count);
+        count += _printf_unsigned_recursives(n / 10, buffer, index, char_count);
 
     buffer[(*index)++] = (n % 10) + '0';
     (*char_count)++;
