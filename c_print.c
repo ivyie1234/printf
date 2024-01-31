@@ -8,6 +8,8 @@
 int _printf(const char *format, ...)
 {
 	int chara = 0;
+	char buffer[BUFFER_SIZE];
+	int index = 0;
 	va_list args;
 
 	if (format == NULL)
@@ -21,8 +23,19 @@ int _printf(const char *format, ...)
 	{
 		if (*format != '%')
 		{
-			put_char(*format);
+			buffer[index++] = *format;
 			chara++;
+
+			if (index == BUFFER_SIZE - 1)
+			{
+				int i;
+
+				for (i = 0; i < index; i++)
+				{
+					put_char(buffer[i]);
+				}
+				index = 0;
+			}
 		}
 		else
 		{
@@ -87,7 +100,10 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
-
+	if (index > 0)
+	{
+		write(1, buffer, index);
+	}
 	va_end(args);
 	return (chara);
 }
