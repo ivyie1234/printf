@@ -14,6 +14,8 @@ int _printf_ints(int n, char *buffer, int *index, int *char_count);
 int _printf_unsigneds(unsigned int n, char *buffer, int *index, int *char_count);
 int _printf_unsigned_recursives(unsigned int n, char *buffer, int *index, int *char_count);
 
+int _printf_S(char *str, char *buffer, int *index, int *char_count);
+
 int _printf_bin_recursive(unsigned int n, int chara);
 int _printf_bin(va_list args);
 int _printf_X(va_list args);

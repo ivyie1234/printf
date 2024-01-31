@@ -7,6 +7,8 @@
 
 int _printf(const char *format, ...)
 {
+	char buffer[BUFFER_SIZE];
+	int index;
 		int chara = 0;
 				va_list args;
 
@@ -98,6 +100,11 @@ int _printf(const char *format, ...)
 						{
 								chara += _printf_X(args);
 						}
+						else if (*format == 'S')
+            {
+                chara += _printf_S(va_arg(args, char*), buffer, &index, &chara);
+            }
+
 				}
 				format++;
 		}
