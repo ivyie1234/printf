@@ -32,10 +32,10 @@ int _printf_unsigned_recursive(unsigned int n)
     int char_count = 0;
 
     if (n > 0)
-        char_count += _printf_unsigned_recursive(n / 10);
+	char_count += _printf_unsigned_recursive(n / 10);
 
     put_char((n % 10) + '0');
-        char_count++;
+    char_count++;
 
     return char_count;
 }
